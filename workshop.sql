@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 03, 2025 at 01:01 PM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 03, 2025 at 03:52 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,8 @@ CREATE TABLE `eoi` (
   `job_reference` varchar(5) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
+  `gender` varchar(15) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
   `street_address` varchar(40) NOT NULL,
   `suburb` varchar(40) NOT NULL,
   `state` varchar(3) NOT NULL,
@@ -54,6 +56,14 @@ CREATE TABLE `eoi` (
   `status` varchar(10) NOT NULL DEFAULT 'New',
   `application_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `eoi`
+--
+
+INSERT INTO `eoi` (`EOInumber`, `job_reference`, `first_name`, `last_name`, `gender`, `dob`, `street_address`, `suburb`, `state`, `postcode`, `email`, `phone`, `skill1`, `skill2`, `skill3`, `skill4`, `skill5`, `skill6`, `skill7`, `skill8`, `skill9`, `skill10`, `skill11`, `skill12`, `other_skills`, `status`, `application_date`) VALUES
+(4, 'WS25A', 'kansfoljnasf', 'OASDJFbaljfsb', NULL, NULL, 'AAOSfbnqwl', 'lwajdfbljaweg', 'NT', '4567', 'ATGAS@afgwseg.ced', '23456789', 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, '', 'New', '2025-04-03 13:40:32'),
+(5, 'WS91D', 'ADGaEG', 'SDGSADG', 'female', '2000-01-24', 'aDgAEG', 'sdgsrhsarh', 'TAS', '3456', 'atajsb@ngsd.com', '12345678', 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, '', 'New', '2025-04-03 13:50:33');
 
 -- --------------------------------------------------------
 
@@ -146,7 +156,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `eoi`
 --
 ALTER TABLE `eoi`
-  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `jobs`

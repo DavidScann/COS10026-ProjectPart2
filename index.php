@@ -9,10 +9,13 @@
 
 <body>
     <section class="welcome">
-        <img src="styles/images/banner.jpg" alt="Welcome Image" class="img-responsive">
         <div class="welcome-line">
             <h1>Welcome to</h1>
-            <img src="styles/images/logo.png" alt="Logo" class="img-responsive">
+        </div>
+        <div class="banner-container">
+            <div class="logo-container-main">
+                <img src="styles/images/logo.png" alt="Logo" class="img-responsive">
+            </div>
         </div>
     </section>
     <main>
@@ -112,7 +115,7 @@
     </main>
     <section class="promo">
         <h1>Ready to turn your imagination into reality?</h1>
-        <p>Contact us today. We can't wait to work with you!</p>
+        <p>Get in touch with us today. We can't wait to work with you!</p>
         <a href="mailto:contact@example.com" class="btn btn-primary">Contact Us</a>
     </section>
     <?php

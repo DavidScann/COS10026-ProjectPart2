@@ -1,24 +1,72 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
 * {
-    margin-inline: 1em;
-    background-color: rgb(34, 34, 34);
     color: white;
 }
 
+/* Replace the universal selector with this more targeted approach */
+body {
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    margin: 1em;
+    padding: 0;
+}
+
+/* Add a container class for content margin instead of applying globally */
+.content-wrapper {
+    margin-inline: 1em;
+}
+
+/* Remove background from text elements */
+p, h1, h2, h3, h4, h5, h6, span, a, label, li, input, select, textarea {
+    background: transparent;
+}
+
+/* Remove the inline margin from headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-inline: 0;
+    font-family: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em; /* Slightly tighter tracking for headings */
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-weight: 300; /* Lighter weight for body text */
+    margin-bottom: 1rem;
+}
+
 .header-logo {
-    width: 4em;
+    width: 4rem;
 }
 
 /* index.php */
 .welcome-line {
     text-align: center;
     margin: auto;
-    font-size: 1.7em;
+    font-size: 1.7rem;
 }
 
 .welcome-line img {
-    width: 6em;
+    width: 12rem;
     height: auto;
-    margin-block: 0.5em;
+    margin-block: 0.5rem;
 }
 
 .promo {
@@ -28,13 +76,15 @@
 
 /* New styles for welcome-content sections */
 .welcome-content {
-    margin: 2em 0;
+    margin: 2rem 0;
 }
 
 .welcome-section {
     display: flex;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .welcome-section:nth-child(even) {
@@ -43,7 +93,7 @@
 
 .welcome-text, .welcome-image {
     flex: 1;
-    padding: 1em;
+    padding: 1rem;
 }
 
 .welcome-image img {
@@ -51,37 +101,55 @@
     height: auto;
 }
 
+.welcome-section h2 {
+    margin-left: 0;  /* Override the universal margin */
+    margin-right: 0;  /* Override the universal margin */
+    padding-left: 0;  /* Ensure no padding is causing indentation */
+    text-align: left;  /* Explicitly align text to the left */
+}
+
+/* If you want to fix all headings in welcome sections */
+.welcome-text h1, 
+.welcome-text h2, 
+.welcome-text h3, 
+.welcome-text h4, 
+.welcome-text h5, 
+.welcome-text h6 {
+    margin-left: 0.5rem;  /* Half of the normal margin */
+    margin-right: 0;
+}
+
 /* Reviews Section */
 .portfolio {
-    margin: 3em auto;
+    margin: 3rem auto;
     text-align: center;
 }
 
 .portfolio h2 {
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5rem;
 }
 
 .portfolio .review {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 }
 
 .star-rating {
     display: flex;
     justify-content: center;
-    margin: 0.5em 0;
+    margin: 0.5rem 0;
 }
 
 .star-rating img {
-    width: 0.9em;  /* Smaller base size for mobile */
-    height: 0.9em;
-    margin: 0 0.1em;
+    width: 0.9rem;  /* Smaller base size for mobile */
+    height: 0.9rem;
+    margin: 0 0.1rem;
     filter: brightness(1.2) saturate(1.5) hue-rotate(15deg); /* Make stars golden */
 }
 
 /* Desktop view - horizontal layout */
-@media (min-width: 768px) {
+@media (min-width: 48em) { /* 768px ÷ 16px = 48em */
     .portfolio {
         display: flex;
         flex-wrap: wrap;
@@ -95,40 +163,32 @@
     .portfolio .review {
         flex: 1;
         max-width: 30%;
-        margin: 0 1em 2em;
-        border: 1px solid #444;
-        border-radius: 8px;
-        padding: 1.5em;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin: 0 1rem 2rem;
+        border: 0.0625rem solid #444; /* 1px */
+        border-radius: 0.5rem; /* 8px */
+        padding: 1.5rem;
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 4px 8px */
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .portfolio .review:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        transform: translateY(-0.3125rem); /* -5px */
+        box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.3); /* 6px 12px */
     }
 
-    .star-rating img {
-        width: 1em;  /* Moderate size for desktop */
-        height: 1em;
-    }
-
+    .star-rating img,
     .review .star-rating img {
-        width: 1em;
-        height: 1em;
+        width: 1rem;
+        height: 1rem;
     }
 }
 
 /* For larger screens */
-@media (min-width: 1200px) {
-    .star-rating img {
-        width: 1.2em;  /* Slightly larger for big screens but still conservative */
-        height: 1.2em;
-    }
-
+@media (min-width: 75em) { /* 1200px ÷ 16px = 75em */
+    .star-rating img,
     .review .star-rating img {
-        width: 1.2em;
-        height: 1.2em;
+        width: 1.2rem;
+        height: 1.2rem;
     }
 }
 
@@ -137,9 +197,9 @@
 }
 
 .review > img {  /* Direct child selector targets only images directly in .review */
-    width: 120px;
+    width: 7.5rem; /* 120px */
     height: auto;
-    margin: 1em auto;
+    margin: 1rem auto;
 }
 
 .review p {
@@ -147,9 +207,1267 @@
     line-height: 1.6;
 }
 
-.review .star-rating img {
-    width: 0.9em;
-    height: 0.9em;
-    margin: 0 0.1em;
-    filter: brightness(1.2) saturate(1.5) hue-rotate(15deg);
+/* Create consistent container styling */
+.welcome-content, .portfolio, .promo {
+    max-width: 75rem; /* 1200px ÷ 16px = 75rem */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+/* Header styling - add this to your CSS file */
+.site-header {
+    background-color: rgb(34, 34, 34); /* Slightly darker than body */
+    margin: 0 0 2rem 0;
+    padding: 0;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header specific overrides */
+.site-header {
+    background-color: rgb(34, 34, 34); /* Restore header background */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    background-color: rgb(34, 34, 34);
+}
+
+.logo-container {
+    margin: 0;
+    background-color: rgb(34, 34, 34);
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 0;
+    background-color: rgb(34, 34, 34);
+}
+
+.header-logo {
+    width: 2.5rem;
+    height: auto;
+    margin: 0 0.75rem 0 0;
+}
+
+.site-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0;
+    background-color: rgb(34, 34, 34);
+}
+
+/* Navigation styling */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(34, 34, 34);
+}
+
+.nav-links li {
+    margin: 0 0.2rem;
+    background-color: rgb(34, 34, 34);
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin: 0;
+    background-color: transparent; /* Keep transparent for hover effect */
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Restore hover effect */
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    background-color: rgb(24, 24, 24);
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 48em) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+    
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        margin-right: 1rem;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: white;
+        height: 0.125rem;
+        width: 1.5rem;
+        position: relative;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+        position: absolute;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-toggle-label span::before {
+        bottom: 0.5rem;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-toggle-label span::after {
+        top: 0.5rem;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .main-nav {
+        width: 100%;
+        display: none;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-toggle:checked ~ .main-nav {
+        display: block;
+        background-color: rgb(24, 24, 24);
+    }
+    
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+}
+
+/* Full-width banner styling */
+.welcome-line {
+    text-align: center;
+    margin: auto;
+    font-size: 1.7rem;
+}
+
+.welcome-line h1 {
+    margin-bottom: 1rem;
+}
+
+.banner-container {
+    margin: 0;
+    margin-left: -1em;
+    margin-right: -1em;
+    padding: 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-image: url('images/banner.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.logo-container-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0;
+    background: none;
+    margin: 0;
+}
+
+.logo-container-main img {
+    width: 12rem;
+    height: auto;
+    background: none;
+    margin: 0;
+}
+
+/* Footer styling */
+.site-footer {
+    margin: 4rem -1em 0 -1em; /* Negative horizontal margins */
+    padding: 0;
+    width: calc(100% + 2em);
+    background-color: rgb(20, 20, 20);
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem; /* Increased horizontal padding */
+}
+
+.footer-section {
+    margin: 0 1rem 2rem 0;
+    background: none;
+}
+
+.footer-section h3, 
+.footer-section h4 {
+    margin: 0 0 1rem 0;
+    padding: 0;
+    background: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-section p {
+    margin: 0 0 1.5rem 0;
+    background: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.footer-section.brand {
+    flex: 0 0 100%;
+}
+
+.footer-section.links,
+.footer-section.contact {
+    flex: 1 0 40%;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+.footer-section ul li {
+    margin: 0 0 0.75rem 0;
+    background: none;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    background: none;
+}
+
+.footer-section a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    background: none;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.btn-footer {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin: 0.5rem 0 0;
+}
+
+.btn-footer:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 0.0625rem solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background: none;
+    margin: 0 0 -1em 0; /* Add negative bottom margin to remove the gap */
+}
+
+.footer-bottom p {
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: none;
+}
+
+/* Desktop layout adjustments */
+@media (min-width: 48em) {
+    .footer-section.brand {
+        flex: 0 0 35%;
+    }
+    
+    .footer-section.links {
+        flex: 0 0 20%;
+    }
+    
+    .footer-section.contact {
+        flex: 0 0 25%;
+    }
+}
+
+/* Add this fix for mobile devices */
+@media (max-width: 48em) {
+    .site-footer {
+        margin-left: -1em;
+        margin-right: -1em;
+        width: calc(100% + 2em);
+    }
+}
+
+/* Team Member Styling */
+.container {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.team-member {
+    /* background-color: rgba(40, 40, 40, 0.5); */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 1.5rem;
+    margin: 0;
+}
+
+.team-member:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.team-photo {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Creates a square aspect ratio */
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.team-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    transition: transform 0.5s ease;
+}
+
+.team-member:hover .team-photo img {
+    transform: scale(1.05);
+}
+
+.team-member h3 {
+    margin: 1.25rem 1.25rem 0.5rem;
+    font-size: 1.3rem;
+}
+
+.team-role {
+    margin: 0 1.25rem 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.team-bio {
+    margin: 0 1.25rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.team-member .social-links {
+    margin: 0 1.25rem;
+    justify-content: flex-start;
+}
+
+/* Responsive grid */
+@media (min-width: 36em) { /* 576px */
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 62em) { /* 992px */
+    .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Team header with group photo */
+.team-header {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.team-header h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.team-header h2:after {
+    content: "";
+    position: absolute;
+    bottom: -0.5rem;
+    left: 25%;
+    width: 50%;
+    height: 0.2rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 0.1rem;
+}
+
+.team-photo-large {
+    max-width: 90%;
+    margin: 0 auto 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.team-photo-large img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.team-photo-large:hover img {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (min-width: 62em) {
+    .team-photo-large {
+        max-width: 75%;
+    }
+}
+
+/* Job listings styling */
+.jobs-list {
+    margin: 3rem 0;
+}
+
+.intro-text {
+    max-width: 50rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.job-card {
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: rgba(40, 40, 40, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.job-header {
+    padding: 1.5rem;
+    background-color: rgba(50, 50, 50, 0.5);
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.job-ref {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.job-brief {
+    padding: 1.5rem 1.5rem 0;
+}
+
+.job-brief p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.job-details {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    gap: 1.5rem;
+}
+
+.meta-item {
+    flex: 1;
+    min-width: 12rem;
+}
+
+.meta-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.25rem;
+}
+
+.meta-value {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.job-section {
+    margin-bottom: 1.5rem;
+}
+
+.job-section h3 {
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.job-section ul {
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 0;
+}
+
+.job-section li {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-apply {
+    display: inline-block;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.btn-apply:hover {
+    background-color: rgb(100, 100, 100);
+    transform: translateY(-0.125rem);
+}
+
+@media (max-width: 48em) {
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .job-ref {
+        margin-top: 0.5rem;
+    }
+    
+    .job-meta {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Enhanced Application Form Styling */
+.application-form {
+    margin: 2rem 0 3rem;
+    max-width: 100%;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background-color: rgba(40, 40, 40, 0.5);
+    border-radius: 0.75rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.25);
+}
+
+.form-section h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1.75rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.75rem;
+    flex: 1;
+    min-width: 15rem;
+}
+
+.form-group label,
+.form-group legend {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+}
+
+.form-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 95%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    background-color: rgba(60, 60, 60, 0.5);
+    color: white;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(5px);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: rgba(58, 134, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(58, 134, 255, 0.2);
+    background-color: rgba(70, 70, 70, 0.6);
+}
+
+input:invalid,
+select:invalid {
+    border-color: rgba(255, 100, 100, 0.5);
+}
+
+.radio-group,
+.checkbox-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+    background-color: rgba(60, 60, 60, 0.5);
+}
+
+.radio-option input,
+.checkbox-option input {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+}
+
+.radio-option label,
+.checkbox-option label {
+    margin: 0;
+    font-weight: normal;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+legend {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 0.75rem;
+}
+
+/* Form action buttons - fixed widths and consistent styling */
+.form-actions {
+    display: flex;
+    gap: 1.5rem; /* Increased gap for better spacing */
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.btn-apply, .btn-reset {
+    display: inline-block;
+    min-width: 10rem; /* Fixed minimum width for both buttons */
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.02em;
+    text-align: center; /* Center text in buttons */
+}
+
+.btn-apply {
+    background-color: #3A86FF;
+    color: white;
+    border: none;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    margin-top: -0.01em;
+}
+
+.btn-reset {
+    background-color: rgba(60, 60, 60, 0.5);
+    color: white;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-apply:hover {
+    background-color: #2A76EF;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.btn-reset:hover {
+    background-color: rgba(80, 80, 80, 0.5);
+    transform: translateY(-0.25rem);
+}
+
+@media (max-width: 48em) {
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-apply, .btn-reset {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 48em) {
+    .form-section {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-apply, .btn-reset {
+        width: 100%;
+    }
+}
+
+/* Authentication Form Styling */
+.auth-form {
+    max-width: 40rem;
+    margin: 2rem auto 4rem;
+}
+
+.auth-form .form-section {
+    padding: 2.5rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form input[type="password"] {
+    width: 95%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    background-color: rgba(60, 60, 60, 0.5);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me  {
+    margin-right: 0.5rem;
+}
+
+.remember-me label {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.auth-links {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.95rem;
+}
+
+.auth-links a {
+    color: rgba(58, 134, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.auth-links a:hover {
+    color: rgba(58, 134, 255, 1);
+    text-decoration: underline;
+}
+
+.terms {
+    margin-top: 2rem;
+}
+
+.terms .checkbox-option {
+    width: 100%;
+    padding: 0.75rem 1rem;
+}
+
+.terms a {
+    color: rgba(58, 134, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.terms a:hover {
+    color: rgba(58, 134, 255, 1);
+    text-decoration: underline;
+}
+
+/* HR Dashboard styles */
+.dashboard-controls {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(40, 40, 40, 0.3);
+    border-radius: 0.5rem;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.filter-group {
+    flex: 1;
+    min-width: 10rem;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+}
+
+.btn-filter {
+    background-color: #3A86FF;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.btn-reset-filter {
+    background-color: rgba(60, 60, 60, 0.5);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+
+/* Applications table */
+.applications-table {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(40, 40, 40, 0.3);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(30, 30, 30, 0.7);
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(50, 50, 50, 0.3);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: #f0ad4e;
+    color: #212529;
+}
+
+.status-reviewed {
+    background-color: #5bc0de;
+    color: #212529;
+}
+
+.status-interviewed {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.status-offered {
+    background-color: #28a745;
+    color: white;
+}
+
+.status-hired {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.status-rejected {
+    background-color: #dc3545;
+    color: white;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-action.view {
+    background-color: rgba(58, 134, 255, 0.2);
+    color: #3A86FF;
+}
+
+.btn-action.delete {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+    border: none;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.inline-form select {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.25rem;
+}
+
+/* Application detail page */
+.application-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.btn-back {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.job-ref {
+    font-size: 1rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 1rem;
+}
+
+.status-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.status-update-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-update {
+    background-color: #3A86FF;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.detail-section {
+    margin-bottom: 2rem;
+}
+
+.detail-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 1rem;
+}
+
+.detail-row {
+    margin-bottom: 0.5rem;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    color: white;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-badge {
+    background-color: rgba(58, 134, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.other-skills {
+    margin-top: 1rem;
+}
+
+.other-skills h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.application-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-contact {
+    background-color: #28a745;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(40, 40, 40, 0.3);
+    border-radius: 0.5rem;
+}
+
+/* Alert messages */
+.alert {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 1px solid rgba(40, 167, 69, 0.3);
+    color: #28a745;
+}
+
+.alert-error {
+    background-color: rgba(220, 53, 69, 0.2);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    color: #dc3545;
+}
+
+/* Account page styles */
+.account-details {
+    margin: 1.5rem 0;
+}
+
+.account-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-logout-account {
+    display: inline-block;
+    background-color: rgba(220, 53, 69, 0.8);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-logout-account:hover {
+    background-color: rgba(220, 53, 69, 1);
+    transform: translateY(-0.125rem);
 }

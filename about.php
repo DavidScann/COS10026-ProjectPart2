@@ -1,5 +1,4 @@
 <?php
-    // Include header
     include 'header.inc';
 ?>
 
@@ -11,7 +10,7 @@
     <div class="team-grid">
         <div class="team-member">
             <div class="team-photo">
-                <img src="styles/images/team1.jpg" alt="Nguyen Minh Khoa">
+                <img src="styles/images/khoa1.jpg" alt="Nguyen Minh Khoa">
             </div>
             <h3>Nguyen Minh Khoa</h3>
             <div class="team-role">Lead Developer</div>
@@ -31,7 +30,7 @@
             <p class="team-bio">A jack of all trades; if you give him a task, he'll complete it. No questions asked.</p>
             <div class="social-links">
                 <a href="#" class="social-icon">LI</a>
-                <a href="#" class="social-icon">DR</a>
+                <a href="#" class="social-icon">IG</a>
             </div>
         </div>
         
@@ -71,6 +70,5 @@
 </div>
 
 <?php
-    // Include footer
     include 'footer.inc';
 ?>

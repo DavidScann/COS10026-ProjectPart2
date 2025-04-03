@@ -2,13 +2,13 @@
 require_once 'settings.php';
 session_start();
 
-// Check if user is logged in as HR
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'HR') {
-    header("Location: login.php");
+    // Redirect non-HR users to the home page with an error message
+    $_SESSION['error'] = "Access denied. You do not have permission to view that page.";
+    header("Location: index.php");
     exit;
 }
 
-// Connect to database
 $conn = connectDB();
 if (!$conn) {
     die("Connection failed. Please try again later.");
@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         }
     }
     
-    // Redirect to refresh the page and avoid form resubmission
+    // This apparently is needed to prevent the form from resubmitting
+    // when the user refreshes the pages
     header("Location: manage.php");
     exit;
 }
@@ -70,7 +71,6 @@ if (!empty($job_filter)) {
 $sql .= " ORDER BY application_date DESC";
 $result = $conn->query($sql);
 
-// Get unique job references for filter dropdown
 $job_refs = $conn->query("SELECT DISTINCT job_reference FROM eoi ORDER BY job_reference");
 ?>
 
@@ -208,7 +208,7 @@ $job_refs = $conn->query("SELECT DISTINCT job_reference FROM eoi ORDER BY job_re
     <?php include 'footer.inc'; ?>
     
     <script>
-    // Confirm deletion dialog
+    // A bit of JavaScript flair to handle the delete confirmation
     document.addEventListener('DOMContentLoaded', function() {
         const deleteButtons = document.querySelectorAll('.btn-action.delete');
         deleteButtons.forEach(button => {

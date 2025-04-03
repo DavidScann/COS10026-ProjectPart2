@@ -1,4 +1,5 @@
 <?php
+session_start(); // Add this at the top
 require_once 'settings.php';
 
 // Check if form was submitted
@@ -81,8 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                      $skill7, $skill8, $skill9, $skill10, $skill11, $skill12, $otherskills);
     
     if ($stmt->execute()) {
+        // Set success message in session
+        $_SESSION['success_message'] = "Thank you for applying! Your application has been successfully submitted.";
+        
         // Redirect to success page
-        header("Location: apply_success.php");
+        header("Location: index.php");
         exit;
     } else {
         echo "Error: " . $stmt->error;

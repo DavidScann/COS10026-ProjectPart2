@@ -30,13 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
     
-    // Insert the new user with plain text password
     $sql = "INSERT INTO users (email, password, first_name, last_name, role) VALUES (?, ?, ?, ?, 'user')";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $email, $password, $firstname, $lastname);
     
     if ($stmt->execute()) {
-        // Set success message
         $_SESSION['login_message'] = "Registration successful! Please login with your credentials.";
         header("Location: login.php");
     } else {

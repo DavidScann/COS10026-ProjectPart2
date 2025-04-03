@@ -2,7 +2,7 @@
     <div class="footer-container">
         <div class="footer-section brand">
             <h3>W.O.R.K_Shop</h3>
-            <p>Turning imagination into reality since 2023.</p>
+            <p>Turning imagination into reality since 2025.</p>
             <div class="social-links">
                 <a href="#" class="social-icon">FB</a>
                 <a href="#" class="social-icon">TW</a>
@@ -24,10 +24,8 @@
         <div class="footer-section links">
             <h4>Resources</h4>
             <ul>
-                <li><a href="contact.php">Contact</a></li>
                 <li><a href="login.php">Login</a></li>
                 <li><a href="register.php">Register</a></li>
-                <li><a href="privacy.php">Privacy Policy</a></li>
             </ul>
         </div>
         

@@ -50,3 +50,106 @@
     width: 100%;
     height: auto;
 }
+
+/* Reviews Section */
+.portfolio {
+    margin: 3em auto;
+    text-align: center;
+}
+
+.portfolio h2 {
+    margin-bottom: 1.5em;
+}
+
+.portfolio .review {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0;
+}
+
+.star-rating img {
+    width: 0.9em;  /* Smaller base size for mobile */
+    height: 0.9em;
+    margin: 0 0.1em;
+    filter: brightness(1.2) saturate(1.5) hue-rotate(15deg); /* Make stars golden */
+}
+
+/* Desktop view - horizontal layout */
+@media (min-width: 768px) {
+    .portfolio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .portfolio h2 {
+        width: 100%;
+    }
+    
+    .portfolio .review {
+        flex: 1;
+        max-width: 30%;
+        margin: 0 1em 2em;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 1.5em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .portfolio .review:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .star-rating img {
+        width: 1em;  /* Moderate size for desktop */
+        height: 1em;
+    }
+
+    .review .star-rating img {
+        width: 1em;
+        height: 1em;
+    }
+}
+
+/* For larger screens */
+@media (min-width: 1200px) {
+    .star-rating img {
+        width: 1.2em;  /* Slightly larger for big screens but still conservative */
+        height: 1.2em;
+    }
+
+    .review .star-rating img {
+        width: 1.2em;
+        height: 1.2em;
+    }
+}
+
+.review h3 {
+    margin-top: 0;
+}
+
+.review > img {  /* Direct child selector targets only images directly in .review */
+    width: 120px;
+    height: auto;
+    margin: 1em auto;
+}
+
+.review p {
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.review .star-rating img {
+    width: 0.9em;
+    height: 0.9em;
+    margin: 0 0.1em;
+    filter: brightness(1.2) saturate(1.5) hue-rotate(15deg);
+}

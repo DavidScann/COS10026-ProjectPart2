@@ -20,7 +20,7 @@
             <div class="welcome-section">
                 <div class="welcome-text">
                     <h2>An unmatched partner in creativity</h2>
-                    <p>Looking to get something made? Whatever it is, we'll get it done.</p>
+                    <p>Looking to get something made? We deliver both digital solutions and physical prototypes that bring your concepts to life. Our team handles projects of any scale - from startup ideas to enterprise innovations. We ensure your vision stays central while enhancing it with our technical expertise and creative insights.</p>
                 </div>
                 <div class="welcome-image">
                     <img src="styles/images/partner.jpg" alt="Partner Image" class="img-responsive">
@@ -67,24 +67,43 @@
             <h2>What do clients say about us?</h2>
             <div class="review">
                 <h3>Ice, CEO of Spiegel Productions</h3>
-                <img src="styles/images/5stars.jpg" alt="5 stars" class="img-responsive">
+                <div class="star-rating">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                </div>
                 <p>It's been an honour to work with the W.O.R.K_Shop. They're professionals; no doubt about it;
                     able to deliver the best product I've seen in such a short amount of time, every single time.
                     It's not often to get to work with a team of such passionate people.
                 </p>
             </div>
+            
             <div class="review">
                 <h3>Alice, Indepedent Content Creator</h3>
-                <img src="styles/images/5stars.jpg" alt="5 stars" class="img-responsive">
+                <div class="star-rating">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                </div>
                 <p>These guys have been one of the cornerstones of my projects. They've helped level up
                     my content creation game to a whole new level. Absolute 10/10 work.
                 </p>
             </div>
+            
             <div class="review">
                 <h3>LazyCreators, Creative Studio</h3>
-                <img src="styles/images/5stars.jpg" alt="5 stars" class="img-responsive">
-                <p>
-                    The W.O.R.K_Shop is a great partner to have. They are always there to help us out
+                <div class="star-rating">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                    <img src="styles/images/material-symbols--star-rounded.png" alt="star">
+                </div>
+                <p>The W.O.R.K_Shop is a great partner to have. They are always there to help us out
                     with our projects, and they always deliver the best quality. We couldn't ask for more.
                     We've relied on them a whole bunch for our projects; Can't imagine doing it without them.
                 </p>

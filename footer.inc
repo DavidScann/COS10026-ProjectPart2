@@ -38,7 +38,7 @@
     </div>
     
     <div class="footer-bottom">
-        <p>&copy; 2024 The Procrastinators. All rights reserved.</p>
+        <p>&copy; 2025 The Procrastinators. All rights reserved.</p>
         <p>Designed by The Procrastinators.</p>
     </div>
 </footer>

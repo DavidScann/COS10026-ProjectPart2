@@ -67,7 +67,8 @@ session_start();
                     <h2>Experts of every field</h2>
                     <p>
                         Our team is made up of experts in every field. From hardware to software,
-                        we have the best people for the job.
+                        we have the best people for the job. Whether your task requires us to build a giant robot, or to
+                        create a simple website, we can do it the best for you.
                     </p>
                 </div>
                 <div class="welcome-image">
@@ -79,7 +80,7 @@ session_start();
                     <h2>You're at the center of it all</h2>
                     <p>
                         We understand that you are the most important part of the process. That's why we
-                        make sure to keep you in the loop at all times.
+                        make sure to keep you in the loop at all times. You're in charge of the project; we just handle the hard part.
                     </p>
                 </div>
                 <div class="welcome-image">

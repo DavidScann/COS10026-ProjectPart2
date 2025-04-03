@@ -13,7 +13,7 @@ $isHR = $isLoggedIn && isset($_SESSION['role']) && $_SESSION['role'] === 'HR';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <title>W.O.R.K_Shop</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 </head>
 <header class="site-header">
     <div class="header-container">

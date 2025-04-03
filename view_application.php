@@ -127,10 +127,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                         </div>
                         <?php endif; ?>
                         
-                        <?php if (isset($application['date_of_birth']) && !empty($application['date_of_birth'])): ?>
+                        <?php if (isset($application['dob']) && !empty($application['dob'])): ?>
                         <div class="detail-row">
                             <div class="detail-label">Date of Birth:</div>
-                            <div class="detail-value"><?php echo date('d/m/Y', strtotime($application['date_of_birth'])); ?></div>
+                            <div class="detail-value"><?php echo date('d/m/Y', strtotime($application['dob'])); ?></div>
                         </div>
                         <?php endif; ?>
                     </div>

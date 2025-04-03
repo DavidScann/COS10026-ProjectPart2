@@ -145,6 +145,8 @@ $job_refs = $conn->query("SELECT DISTINCT job_reference FROM eoi ORDER BY job_re
                             <th>ID</th>
                             <th>Job Ref</th>
                             <th>Name</th>
+                            <th>Gender</th>
+                            <th>DOB</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Applied</th>
@@ -158,6 +160,8 @@ $job_refs = $conn->query("SELECT DISTINCT job_reference FROM eoi ORDER BY job_re
                                 <td><?php echo htmlspecialchars($row['EOInumber']); ?></td>
                                 <td><?php echo htmlspecialchars($row['job_reference']); ?></td>
                                 <td><?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></td>
+                                <td><?php echo isset($row['gender']) ? htmlspecialchars(ucfirst($row['gender'])) : '-'; ?></td>
+                                <td><?php echo isset($row['date_of_birth']) ? date('d/m/Y', strtotime($row['date_of_birth'])) : '-'; ?></td>
                                 <td><?php echo htmlspecialchars($row['email']); ?></td>
                                 <td><?php echo htmlspecialchars($row['phone']); ?></td>
                                 <td><?php echo date('d M Y', strtotime($row['application_date'])); ?></td>

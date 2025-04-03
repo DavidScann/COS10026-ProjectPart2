@@ -15,6 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jobref = sanitizeInput($conn, $_POST['jobref']);
     $firstname = sanitizeInput($conn, $_POST['firstname']);
     $lastname = sanitizeInput($conn, $_POST['lastname']);
+    $gender = isset($_POST['gender']) ? sanitizeInput($conn, $_POST['gender']) : '';
+    $dobInput = sanitizeInput($conn, $_POST['dob']);
+
+    // Convert date format from dd/mm/yyyy to yyyy-mm-dd for MySQL
+    $dobParts = explode('/', $dobInput);
+    if (count($dobParts) === 3) {
+        $dob = $dobParts[2] . '-' . $dobParts[1] . '-' . $dobParts[0]; // yyyy-mm-dd
+    } else {
+        $dob = NULL;
+    }
+    
     $address = sanitizeInput($conn, $_POST['address']);
     $suburb = sanitizeInput($conn, $_POST['suburb']);
     $state = sanitizeInput($conn, $_POST['state']);
@@ -71,13 +82,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     // Insert application data into EOI table
-    $sql = "INSERT INTO eoi (job_reference, first_name, last_name, street_address, suburb, state, postcode, 
+    $sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, date_of_birth, street_address, suburb, state, postcode, 
                           email, phone, skill1, skill2, skill3, skill4, skill5, skill6, 
                           skill7, skill8, skill9, skill10, skill11, skill12, other_skills, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')";
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssiiiiiiiiiiiss", $jobref, $firstname, $lastname, $address, $suburb, $state, $postcode, 
+    $stmt->bind_param("ssssssssssiiiiiiiiiiiiss", $jobref, $firstname, $lastname, $gender, $dob, $address, $suburb, $state, $postcode, 
                      $email, $phone, $skill1, $skill2, $skill3, $skill4, $skill5, $skill6, 
                      $skill7, $skill8, $skill9, $skill10, $skill11, $skill12, $otherskills);
     

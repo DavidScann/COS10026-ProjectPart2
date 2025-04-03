@@ -119,6 +119,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                             <div class="detail-label">Full Name:</div>
                             <div class="detail-value"><?php echo htmlspecialchars($application['first_name'] . ' ' . $application['last_name']); ?></div>
                         </div>
+                        
+                        <?php if (isset($application['gender']) && !empty($application['gender'])): ?>
+                        <div class="detail-row">
+                            <div class="detail-label">Gender:</div>
+                            <div class="detail-value"><?php echo htmlspecialchars(ucfirst($application['gender'])); ?></div>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php if (isset($application['date_of_birth']) && !empty($application['date_of_birth'])): ?>
+                        <div class="detail-row">
+                            <div class="detail-label">Date of Birth:</div>
+                            <div class="detail-value"><?php echo date('d/m/Y', strtotime($application['date_of_birth'])); ?></div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 

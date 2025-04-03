@@ -13,7 +13,7 @@
                 <img src="styles/images/khoa1.jpg" alt="Nguyen Minh Khoa">
             </div>
             <h3>Nguyen Minh Khoa</h3>
-            <div class="team-role">Lead Developer</div>
+            <div class="team-role">Team Leader (and everyman)</div>
             <p class="team-bio">The leader of The Procrastinators. He is, ironically, the one who procrastinates the least.</p>
             <div class="social-links">
                 <a href="#" class="social-icon">LI</a>
@@ -23,7 +23,7 @@
         
         <div class="team-member">
             <div class="team-photo">
-                <img src="styles/images/team2.jpg" alt="Le Nguyen Gia Bao">
+                <img src="styles/images/bao.jpg" alt="Le Nguyen Gia Bao">
             </div>
             <h3>Le Nguyen Gia Bao</h3>
             <div class="team-role">Assistant Developer</div>
@@ -36,7 +36,7 @@
         
         <div class="team-member">
             <div class="team-photo">
-                <img src="styles/images/team3.jpg" alt="Doan Tran Gia Nghi">
+                <img src="styles/images/nghi.jpg" alt="Doan Tran Gia Nghi">
             </div>
             <h3>Doan Tran Gia Nghi</h3>
             <div class="team-role">Assistant UI/UX Designer</div>
@@ -49,7 +49,7 @@
         
         <div class="team-member">
             <div class="team-photo">
-                <img src="styles/images/team4.jpg" alt="Ho Dang Khoa">
+                <img src="styles/images/khoa2.png" alt="Ho Dang Khoa">
             </div>
             <h3>Ho Dang Khoa</h3>
             <div class="team-role">Project Assistant</div>

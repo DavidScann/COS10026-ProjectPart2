@@ -1,0 +1,52 @@
+* {
+    margin-inline: 1em;
+    background-color: rgb(34, 34, 34);
+    color: white;
+}
+
+.header-logo {
+    width: 4em;
+}
+
+/* index.php */
+.welcome-line {
+    text-align: center;
+    margin: auto;
+    font-size: 1.7em;
+}
+
+.welcome-line img {
+    width: 6em;
+    height: auto;
+    margin-block: 0.5em;
+}
+
+.promo {
+    text-align: center;
+    margin: auto;
+}
+
+/* New styles for welcome-content sections */
+.welcome-content {
+    margin: 2em 0;
+}
+
+.welcome-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.welcome-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.welcome-text, .welcome-image {
+    flex: 1;
+    padding: 1em;
+}
+
+.welcome-image img {
+    width: 100%;
+    height: auto;
+}

@@ -1,2 +1,7 @@
 # COS10026-ProjectPart2
-let's see if i can do this
+This rework for Project Part 2 was done by: Nguyen Minh Khoa
+
+To deploy this locally:
+- Launch your Apache server
+- Launch your MySQL database
+- Import workshop.sql into a database named `workshop`
